@@ -1,0 +1,12 @@
+services:
+  hub:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_PATH: /app/data/automation_hub.db
+    volumes:
+      - hub-data:/app/data
+    restart: unless-stopped
+volumes:
+  hub-data:
+
