@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Automation Hub</title><link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <aside><div class="brand"><b>A</b><span>Automation Hub<small>AI CONTROL PLANE</small></span></div>
+    <nav><button class="active" data-view="overview">Visão geral</button><button data-view="resources">Skills & MCPs</button><button data-view="workflows">Workflows</button><button data-view="runs">Execuções</button></nav>
+    <div class="safe"><i></i><span>Ambiente seguro<small>Modo simulação</small></span></div>
+  </aside>
+  <main>
+    <header><div><small>OPERAÇÕES DE IA</small><h1 id="title">Visão geral</h1></div><button class="primary" id="add-resource">+ Novo recurso</button></header>
+    <section class="view active" id="overview">
+      <div class="hero"><div><label>CONTROL PLANE</label><h2>Automação de IA,<br><em>sob seu controle.</em></h2><p>Organize Skills, conecte servidores MCP e transforme tarefas repetitivas em workflows observáveis.</p></div><div class="orb"></div></div>
+      <div class="stats" id="stats"></div>
+      <div class="columns"><article><h3>Workflows recentes</h3><div id="recent-workflows"></div></article><article><h3>Atividade</h3><div id="recent-runs"></div></article></div>
+    </section>
+    <section class="view" id="resources"><div class="intro"><div><h2>Catálogo de recursos</h2><p>Skills encapsulam conhecimento; MCPs conectam ferramentas e dados.</p></div></div><div class="cards" id="resource-list"></div></section>
+    <section class="view" id="workflows"><div class="intro"><div><h2>Workflows</h2><p>Componha recursos em processos repetíveis e auditáveis.</p></div><button class="primary" id="add-workflow">+ Novo workflow</button></div><div class="cards" id="workflow-list"></div></section>
+    <section class="view" id="runs"><div class="intro"><div><h2>Execuções</h2><p>Histórico e estado de cada automação.</p></div></div><article><div id="run-list"></div></article></section>
+  </main>
+  <dialog id="resource-dialog"><form id="resource-form"><div class="dialog-head"><div><small>NOVO RECURSO</small><h2>Adicionar integração</h2></div><button type="button" class="close">×</button></div><label>Tipo<select name="kind"><option value="skill">Skill</option><option value="mcp">Servidor MCP</option></select></label><label>Nome<input name="name" minlength="2" required placeholder="Análise de contratos"></label><label>Descrição<textarea name="description" placeholder="O que este recurso faz?"></textarea></label><label>Endpoint opcional<input name="endpoint" placeholder="stdio:// ou https://"></label><footer><button type="button" class="secondary close">Cancelar</button><button class="primary">Salvar</button></footer></form></dialog>
+  <dialog id="workflow-dialog"><form id="workflow-form"><div class="dialog-head"><div><small>NOVO WORKFLOW</small><h2>Compor automação</h2></div><button type="button" class="close">×</button></div><label>Nome<input name="name" minlength="2" required placeholder="Revisão semanal"></label><label>Descrição<textarea name="description"></textarea></label><label>Recurso<select name="resource_id" id="resource-options"></select></label><label>Ação<input name="action" value="execute" required></label><footer><button type="button" class="secondary close">Cancelar</button><button class="primary">Criar</button></footer></form></dialog>
+  <div id="toast"></div><script src="/assets/app.js"></script>
+</body></html>
+
